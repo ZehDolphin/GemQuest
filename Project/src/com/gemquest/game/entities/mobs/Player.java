@@ -55,7 +55,7 @@ public class Player extends Mob {
 		if (yDist <= 1)
 			bounds.setY(tilePosition.y * Settings.TILE_SIZE);
 
-		if (Keyboard.isKeyPressed(KeyEvent.VK_W) && yDist <= 1 && !isWalking) {
+		if (Keyboard.isKeyPressed(KeyEvent.VK_W) && yDist <= 1) {
 			int t = getCollisionTile(0, -1);
 			if (t != 24 && t != 8) {
 				tilePosition.y--;
@@ -63,21 +63,21 @@ public class Player extends Mob {
 			}
 
 		}
-		if (Keyboard.isKeyPressed(KeyEvent.VK_A) && xDist <= 1 && !isWalking) {
+		if (Keyboard.isKeyPressed(KeyEvent.VK_A) && xDist <= 1) {
 			int t = getCollisionTile(-1, 0);
 			if (t != 24 && t != 23) {
 				tilePosition.x--;
 				isWalking = true;
 			}
 		}
-		if (Keyboard.isKeyPressed(KeyEvent.VK_S) && yDist <= 1 && !isWalking) {
+		if (Keyboard.isKeyPressed(KeyEvent.VK_S) && yDist <= 1) {
 			int t = getCollisionTile(0, 1);
 			if (t != 24 && t != 40) {
 				tilePosition.y++;
 				isWalking = true;
 			}
 		}
-		if (Keyboard.isKeyPressed(KeyEvent.VK_D) && xDist <= 1 && !isWalking) {
+		if (Keyboard.isKeyPressed(KeyEvent.VK_D) && xDist <= 1) {
 
 			int t = getCollisionTile(1, 0);
 			if (t != 24 && t != 25) {
@@ -87,7 +87,7 @@ public class Player extends Mob {
 			
 		}
 		
-		System.out.println(getCollisionTile(0, 0));
+		//System.out.println(getCollisionTile(0, 0));
 
 		camera.setColor(Color.GREEN);
 		camera.drawRect(tilePosition.x * Settings.TILE_SIZE, tilePosition.y * Settings.TILE_SIZE, bounds.getWidth(), bounds.getHeight());

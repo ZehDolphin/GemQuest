@@ -73,7 +73,7 @@ public class MainGame extends Screen {
 		camera.drawImage(tiles.image, tiles.width / 2 - currentMap.getTileWidth() / 2, tiles.height / 2 - currentMap.getTileHeight() / 2, tiles.image.getWidth(), tiles.image.getHeight());
 //		renderer.drawLayer(0, camera);
 		
-		renderer.drawLayer(1, camera);
+//		renderer.drawLayer(1, camera);
 		
 		player.draw(camera);
 		
