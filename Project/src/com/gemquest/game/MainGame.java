@@ -5,6 +5,7 @@ import java.awt.Color;
 import com.gemquest.game.entities.mobs.Player;
 import com.gemquest.main.Settings;
 import com.heat.engine.Engine;
+import com.heat.engine.graphics.Graphics;
 import com.heat.engine.graphics.camera.PerspectiveCamera;
 import com.heat.engine.graphics.image.DynamicRenderObject;
 import com.heat.engine.graphics.screen.Screen;
@@ -69,6 +70,9 @@ public class MainGame extends Screen {
 		camera.x += Math.cos(angle) * distance * smoothing * Engine.getDelta();
 		camera.y += Math.sin(angle) * distance * smoothing * Engine.getDelta();
 		
+		int w = (int) (12*16/camera.pixelWidth);
+		Engine.getRenderer().getGraphics().setClip(Engine.getWidth() / 2 - w / 2, Engine.getHeight() / 2 - w/ 2, w, w);
+		
 		
 		camera.drawImage(tiles.image, tiles.width / 2 - currentMap.getTileWidth() / 2, tiles.height / 2 - currentMap.getTileHeight() / 2, tiles.image.getWidth(), tiles.image.getHeight());
 //		renderer.drawLayer(0, camera);
@@ -77,9 +81,7 @@ public class MainGame extends Screen {
 		
 		player.draw(camera);
 		
-		camera.setColor(Color.RED);
-		camera.drawRect(16*6 - 8, 16*6 - 8, 16*12, 16*12);
-		
+		Engine.getRenderer().getGraphics().setClip(0, 0, Engine.getWidth(), Engine.getHeight());
 		
 		
 		
